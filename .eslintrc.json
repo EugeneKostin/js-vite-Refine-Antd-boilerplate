@@ -1,0 +1,96 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "airbnb",
+        "airbnb/hooks",
+        "plugin:react/recommended",
+        "plugin:prettier/recommended",
+        "plugin:jsx-a11y/recommended"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 2022,
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "plugins": ["prettier", "react", "simple-import-sort"],
+    "rules": {
+        "prettier/prettier": "error",
+
+        "react-hooks/exhaustive-deps": "warn",
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react/prop-types": "off",
+        "import/prefer-default-export": "off",
+        "react/function-component-definition": [
+            "error",
+            {
+                "namedComponents": ["function-declaration", "arrow-function"],
+                "unnamedComponents": "arrow-function"
+            }
+        ],
+        "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+        "no-unused-vars": [
+            "warn",
+            {
+                "argsIgnorePattern": "^_",
+                "varsIgnorePattern": "^_"
+            }
+        ],
+        "padding-line-between-statements": [
+            "warn",
+
+            // After directives (like 'use-strict'), except between directives
+            { "blankLine": "always", "prev": "directive", "next": "*" },
+            { "blankLine": "any", "prev": "directive", "next": "directive" },
+
+            // After imports, except between imports
+            { "blankLine": "always", "prev": "import", "next": "*" },
+            { "blankLine": "any", "prev": "import", "next": "import" },
+
+            // Before and after every sequence of variable declarations
+            { "blankLine": "always", "prev": "*", "next": ["const", "let", "var"] },
+            { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
+            {
+                "blankLine": "any",
+                "prev": ["const", "let", "var"],
+                "next": ["const", "let", "var"]
+            },
+
+            // Before and after every multiline variable declarations
+            {
+                "blankLine": "always",
+                "prev": "*",
+                "next": ["multiline-const", "multiline-let", "multiline-var"]
+            },
+            {
+                "blankLine": "always",
+                "prev": ["multiline-const", "multiline-let", "multiline-var"],
+                "next": "*"
+            },
+
+            // Before and after class declaration, if, while, switch, try
+            {
+                "blankLine": "always",
+                "prev": "*",
+                "next": ["class", "if", "while", "switch", "try"]
+            },
+            {
+                "blankLine": "always",
+                "prev": ["class", "if", "while", "switch", "try"],
+                "next": "*"
+            },
+
+            // Before return statements
+            { "blankLine": "always", "prev": "*", "next": "return" }
+        ],
+
+        "simple-import-sort/imports": "error",
+        "simple-import-sort/exports": "error",
+
+        "max-lines": ["error", { "max": 350, "skipComments": true }]
+    }
+}
